@@ -1362,3 +1362,106 @@ footer span:last-child {
  .campaign.campaign-graphic > img.cp1{right:78vw}.campaign.campaign-graphic > img.cp2{right:59vw}.campaign.campaign-graphic > img.cp3{right:40vw}.campaign.campaign-graphic > img.cp4{right:21vw}.campaign.campaign-graphic > img.cp5{right:2vw}
  .campaign.campaign-graphic > .campaign-message{background:linear-gradient(#0008,#0003 48%,transparent 70%)}
 }
+
+/* V5.2 — preserve the real proportions of product photography */
+.card-product {
+  width: auto;
+  height: min(70vh, 680px);
+  max-width: min(31vw, 430px);
+  object-fit: contain;
+}
+
+.detail .pack-zone > .product-photo {
+  width: auto;
+  height: min(72vh, 700px);
+  max-width: min(34vw, 440px);
+}
+
+.sticky-pack > .product-photo {
+  width: auto;
+  height: min(72vh, 700px);
+  max-width: min(30vw, 390px);
+}
+
+.campaign.campaign-graphic > img.campaign-product {
+  width: auto;
+  height: min(46vh, 520px);
+  max-width: clamp(115px, 11vw, 190px);
+}
+
+@media (max-width: 800px) {
+  .card-product {
+    width: auto;
+    height: 48vh;
+    max-width: 52vw;
+  }
+  .detail .pack-zone > .product-photo,
+  .sticky-pack > .product-photo {
+    width: auto;
+    height: 58vh;
+    max-width: 68vw;
+  }
+  .campaign.campaign-graphic > img.campaign-product {
+    width: auto;
+    height: 31vh;
+    max-width: 19vw;
+    min-width: 0;
+  }
+}
+
+/* V5.3 — MOBILE/ALL VIEWPORTS: never stretch product photography */
+img.pack-image,
+img.product-photo,
+img.card-product,
+.detail .pack-zone > img.product-photo,
+.sticky-pack > img.product-photo,
+.campaign.campaign-graphic > img.campaign-product {
+  height: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+.card-product {
+  width: min(31vw, 430px) !important;
+  max-width: min(31vw, 430px) !important;
+  max-height: 70vh;
+}
+.detail .pack-zone > img.product-photo {
+  width: min(34vw, 440px) !important;
+  max-width: min(34vw, 440px) !important;
+  max-height: 72vh;
+}
+.sticky-pack > img.product-photo {
+  width: min(30vw, 390px) !important;
+  max-width: min(30vw, 390px) !important;
+  max-height: 72vh;
+}
+.campaign.campaign-graphic > img.campaign-product {
+  width: clamp(115px, 11vw, 190px) !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  max-height: 46vh;
+}
+
+@media (max-width: 800px) {
+  img.pack-image { width: min(42vw, 180px) !important; height: auto !important; }
+  .card-product {
+    width: 52vw !important;
+    max-width: 52vw !important;
+    height: auto !important;
+    max-height: 48vh;
+  }
+  .detail .pack-zone > img.product-photo,
+  .sticky-pack > img.product-photo {
+    width: 68vw !important;
+    max-width: 68vw !important;
+    height: auto !important;
+    max-height: 58vh;
+  }
+  .campaign.campaign-graphic > img.campaign-product {
+    width: 19vw !important;
+    max-width: 19vw !important;
+    height: auto !important;
+    max-height: 31vh;
+  }
+}
